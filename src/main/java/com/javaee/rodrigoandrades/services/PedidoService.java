@@ -4,44 +4,34 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.javaee.rodrigoandrades.domain.Produto;
+import com.javaee.rodrigoandrades.domain.Pedido;
 
 public class PedidoService {
-	private List<Produto> vehicles = new ArrayList<Produto>();
-	private Integer actualId = 10;
-/*
-	public ProdutoService2() {
-		for (int i = 0; i < 10; i++) {
-			Produto vehicle = new Produto();
-			vehicle.setId(i);
-			vehicle.setName("Subaru" + i);
-			vehicle.setYear(2018);
-			vehicles.add(vehicle);
-		}
-	}
-*/
-	public List<Produto> getAll() {
-		return vehicles;
+	private List<Pedido> pedidos = new ArrayList<Pedido>();
+	private Integer actualId = 1;
+	
+	public List<Pedido> getAll() {
+		return pedidos;
 	}
 
-	public Produto findById(Integer id) {
-		Optional<Produto> vehicleOptional = vehicles.stream().filter(vehicle -> vehicle.getId().equals(id)).findFirst();
+	public Pedido findById(Integer id) {
+		Optional<Pedido> pedidoOptional = pedidos.stream().filter(pedido -> pedido.getId().equals(id)).findFirst();
 
-		return vehicleOptional.orElse(null);
+		return pedidoOptional.orElse(null);
 	}
-
-	public Produto saveVehicle(Produto vehicle) {
-		if (vehicle.getId() != null) {
-			this.deleteById(vehicle.getId());
+	
+	public Pedido savePedido(Pedido pedido) {
+		if (pedido.getId() != null) {
+			this.deleteById(pedido.getId());
 		} else {
 			actualId++;
-			vehicle.setId(actualId);
+			pedido.setId(actualId);
 		}
-		this.vehicles.add(vehicle);
-		return vehicle;
+		this.pedidos.add(pedido);
+		return pedido;
 	}
-
+	
 	public void deleteById(Integer id) {
-		this.vehicles.removeIf(vehicle -> vehicle.getId().equals(id));
+		this.pedidos.removeIf(pedido -> pedido.getId().equals(id));
 	}
 }

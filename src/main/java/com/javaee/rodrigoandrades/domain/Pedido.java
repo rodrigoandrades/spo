@@ -2,7 +2,7 @@ package com.javaee.rodrigoandrades.domain;
 
 public class Pedido {
 	private Integer id;
-	private Produto produto;
+	private Integer idProduto;
 	private String email;
 	private String nome;
 	private String endereco;
@@ -12,12 +12,6 @@ public class Pedido {
 	}
 	public void setId(Integer id) {
 		this.id = id;
-	}
-	public Produto getProduto() {
-		return produto;
-	}
-	public void setProduto(Produto produto) {
-		this.produto = produto;
 	}
 	public String getEmail() {
 		return email;
@@ -36,5 +30,11 @@ public class Pedido {
 	}
 	public void setEndereco(String endereco) {
 		this.endereco = endereco;
+	}
+	public Integer getIdProduto() {
+		return idProduto;
+	}
+	public void setIdProduto(Integer idProduto) {
+		this.idProduto = idProduto;
 	}
 }
